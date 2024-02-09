@@ -584,10 +584,13 @@ db.collection.aggregate([
 
 ```
 
-. 
+25.  $concatArrays: expression to add an element to an existing array field.
 
 ```javascript
-
+db.scores.aggregate([
+   { $match: { _id: 1 } },
+   { $addFields: { homework: { $concatArrays: [ "$homework", [ 7 ] ] } } }
+])
 ```
 
 . 
